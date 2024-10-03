@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import "package:learning/home_page.dart";
 
 void main() {
   runApp(const MyApp());
@@ -61,7 +62,15 @@ class LoginPage extends StatelessWidget {
               height: 12,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return const HomePage();
+                    },
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.red,
