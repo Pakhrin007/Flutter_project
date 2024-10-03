@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learning/des.dart';
+import 'package:learning/main.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -6,6 +8,35 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: SafeArea(
+            child: Column(
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.red,
+              ),
+              child: ListTile(
+                title: Text("FLutter Map"),
+              ),
+            ),
+            const ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("settings"),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (BuildContext context) {
+                  return const LoginPage();
+                }));
+              },
+              leading: const Icon(Icons.logout),
+              title: const Text("Logout"),
+            ),
+          ],
+        )),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.red,
       ),
@@ -49,7 +80,7 @@ class HomePage extends StatelessWidget {
               onTap: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (BuildContext context) {
-                  return Container();
+                  return const Desc();
                 }));
               },
               child: MouseRegion(
